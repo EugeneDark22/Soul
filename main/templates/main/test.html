@@ -1,0 +1,169 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+{% load static %}
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="{% static 'main/img/img.png' %}" alt="Герой зображення">
+            </div>
+            <div class="hero-text">
+                <p>
+                    Вчені впевнені в тому, що емоції відіграють важливу роль у виникненні більшості захворювань.<br>
+                    Якщо ваш лікар більше дізнається про ваші переживання, він зможе краще допомогти вам.<br>
+                    Цей опитувальник розроблений для того, щоб допомогти вашому лікареві зрозуміти, як ви себе почуваєте.<br>
+                    Прочитайте уважно кожне твердження й відзначте відповідь, яка найбільше відповідає тому, як ви почувалися на минулому тижні.<br>
+                    Не роздумуйте над кожним твердженням занадто довго – ваша перша реакція завжди буде найвірнішою.
+                </p>
+            </div>
+        </div>
+    </section>
+    <main class="content">
+            <form method="POST" action="{% url 'test' %}" id="testForm">
+            {% csrf_token %}
+            <div class="question-block">
+                {{ form.question1.errors }}
+                <p class="question">Я відчуваю напруженість, мені не по собі.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question1" value="3"> Весь час.</label>
+                    <label class="option"><input type="radio" name="question1" value="2"> Часто</label>
+                    <label class="option"><input type="radio" name="question1" value="1"> Час від часу, іноді.</label>
+                    <label class="option"><input type="radio" name="question1" value="0"> Зовсім не відчуваю.</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question2.errors }}
+                <p class="question">Те, що раніше приносило мені велике задоволення, і зараз викликає у мене таке ж почуття.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question2" value="0"> Безумовно так.</label>
+                    <label class="option"><input type="radio" name="question2" value="1"> Неначе, що так.</label>
+                    <label class="option"><input type="radio" name="question2" value="2"> Лише в дуже малому ступені це так.</label>
+                    <label class="option"><input type="radio" name="question2" value="3"> Це зовсім не так.</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question3.errors }}
+                <p class="question">Я відчуваю страх, здається, ніби щось жахливе може ось-ось статися.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question3" value="3"> Безумовно так, і страх дуже сильний</label>
+                    <label class="option"><input type="radio" name="question3" value="2"> Це так, але страх не дуже сильний</label>
+                    <label class="option"><input type="radio" name="question3" value="1"> Іноді, але це мене не турбує</label>
+                    <label class="option"><input type="radio" name="question3" value="0"> Зовсім не відчуваю</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question4.errors }}
+                <p class="question">Я здатний розсміятися і побачити в тій чи іншій події смішне.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question4" value="0"> Безумовно так.</label>
+                    <label class="option"><input type="radio" name="question4" value="1"> Напевно, що так.</label>
+                    <label class="option"><input type="radio" name="question4" value="2"> Лише в дуже малому ступені це так.</label>
+                    <label class="option"><input type="radio" name="question4" value="3"> Зовсім не здатний.</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question5.errors }}
+                <p class="question">Неспокійні думки крутяться у мене в голові.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question5" value="3"> Постійно.</label>
+                    <label class="option"><input type="radio" name="question5" value="2"> Велику частину часу.</label>
+                    <label class="option"><input type="radio" name="question5" value="1"> Час від часу, не так часто.</label>
+                    <label class="option"><input type="radio" name="question5" value="0"> Тільки іноді.</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question6.errors }}
+                <p class="question">Я відчуваю бадьорість.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question6" value="3"> Зовсім не відчуваю.</label>
+                    <label class="option"><input type="radio" name="question6" value="2"> Дуже рідко.</label>
+                    <label class="option"><input type="radio" name="question6" value="1"> Іноді.</label>
+                    <label class="option"><input type="radio" name="question6" value="0"> Практично весь час.</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question7.errors }}
+                <p class="question">Я легко можу сісти і розслабитись.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question7" value="0"> Безумовно так.</label>
+                    <label class="option"><input type="radio" name="question7" value="1"> Напевно, що так.</label>
+                    <label class="option"><input type="radio" name="question7" value="2"> Лише зрідка це так.</label>
+                    <label class="option"><input type="radio" name="question7" value="3"> Зовсім не можу.</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question8.errors }}
+                <p class="question">Мені здається, що я почав все робити дуже повільно.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question8" value="3"> Практично весь час.</label>
+                    <label class="option"><input type="radio" name="question8" value="2"> Часто.</label>
+                    <label class="option"><input type="radio" name="question8" value="1"> Іноді.</label>
+                    <label class="option"><input type="radio" name="question8" value="0"> Зовсім ні.</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question9.errors }}
+                <p class="question">Я відчуваю внутрішнє напруження або трепетіння.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question9" value="0"> Зовсім не відчуваю.</label>
+                    <label class="option"><input type="radio" name="question9" value="1"> Іноді.</label>
+                    <label class="option"><input type="radio" name="question9" value="2"> Часто.</label>
+                    <label class="option"><input type="radio" name="question9" value="3"> Дуже часто.</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question10.errors }}
+                <p class="question">Я не стежу за своєю зовнішністю.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question10" value="3"> Безумовно так.</label>
+                    <label class="option"><input type="radio" name="question10" value="2"> Я не приділяю цьому стільки часу, скільки потрібно.</label>
+                    <label class="option"><input type="radio" name="question10" value="1"> Може бути, я став менше приділяти часу зовнішності.</label>
+                    <label class="option"><input type="radio" name="question10" value="0"> Я стежу за собою так само, як і раніше.</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question11.errors }}
+                <p class="question">Я відчуваю непослідовність, немов мені постійно потрібно рухатися.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question11" value="3"> Безумовно так.</label>
+                    <label class="option"><input type="radio" name="question11" value="2"> Напевно, що так.</label>
+                    <label class="option"><input type="radio" name="question11" value="1"> Лише в деякі дні це так.</label>
+                    <label class="option"><input type="radio" name="question11" value="0"> Зовсім не відчуваю.</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question12.errors }}
+                <p class="question">Я вважаю, що мої справи (заняття, захоплення) можуть принести мені почуття задоволення.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question12" value="0"> Точно так само, як і завжди.</label>
+                    <label class="option"><input type="radio" name="question12" value="1"> Так, але не в тій мірі, як раніше.</label>
+                    <label class="option"><input type="radio" name="question12" value="2"> Значно менше, ніж завжди.</label>
+                    <label class="option"><input type="radio" name="question12" value="3"> Зовсім так не вважаю.</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question13.errors }}
+                <p class="question">У мене буває раптове відчуття паніки.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question13" value="3"> Дуже часто.</label>
+                    <label class="option"><input type="radio" name="question13" value="2"> Досить часто.</label>
+                    <label class="option"><input type="radio" name="question13" value="1"> Не так уже часто.</label>
+                    <label class="option"><input type="radio" name="question13" value="0"> Зовсім не буває.</label>
+                </div>
+            </div>
+            <div class="question-block">
+                {{ form.question14.errors }}
+                <p class="question">Я можу отримати задоволення від гарної книги, радіо чи телепрограм.</p>
+                <div class="answers">
+                    <label class="option"><input type="radio" name="question14" value="0"> Часто.</label>
+                    <label class="option"><input type="radio" name="question14" value="1"> Іноді.</label>
+                    <label class="option"><input type="radio" name="question14" value="2"> Рідко.</label>
+                    <label class="option"><input type="radio" name="question14" value="3"> Дуже рідко.</label>
+                </div>
+            </div>
+            <div class="submit-block">
+                <button type="submit" class="result-button">Дізнатись результат</button>
+            </div>
+        </form>
+    </main>
+{% endblock %}

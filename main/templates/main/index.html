@@ -1,0 +1,61 @@
+{% extends 'main/base_index.html' %}
+
+{% block title %}Головна - SoulCraft{% endblock %}
+{% load static %}
+{% block content %}
+    <section class="hero">
+        <div class="hero-content">
+            <form class="hero-form" action="{% url 'psychologist' %}" method="get">
+                <h1>Ментальне здоров’я починається тут</h1>
+                <p>Підбери спеціаліста який вас зрозуміє</p>
+                <button type="submit">Підібрати спеціаліста</button>
+            </form>
+        </div>
+        <img src="{% static 'main/img/afro-girl-enjoying-the-sea-idyll-royalty-free-image-1661186370.jpg' %}" alt="Image Description" class="hero-image">
+    </section>
+    <section class="how-to-choose">
+        <h2>Як швидко обрати спеціаліста?</h2>
+        <p>Це ок бути не ок. Ми це розуміємо та ставимося до таких станів з особливою турботою.</p>
+        <div class="choose-steps">
+            <div class="step">
+                <img src="{% static 'main/img/Frame 8.png' %}" alt="Пройдіть опитування" class="step-image">
+                <h3>Пройдіть опитування</h3>
+                <p>Пройдіть невелике опитування, що допоможе нам підібрати для вас найкращих спеціалістів під ваш запит.</p>
+            </div>
+            <div class="step">
+                <img src="{% static 'main/img/Frame 9.png' %}" alt="Оберіть спеціаліста" class="step-image">
+                <h3>Оберіть спеціаліста</h3>
+                <p>Серед запропонованих спеціалістів, оберіть найкращий варіант для себе.</p>
+            </div>
+            <div class="step">
+                <img src="{% static 'main/img/Frame 10.png' %}" alt="Оберіть час" class="step-image">
+                <h3>Оберіть час</h3>
+                <p>Оберіть зручний для Вас час сесії з запропонованих вільних годин.</p>
+            </div>
+        </div>
+    </section>
+    <section class="about-therapy">
+        <div class="content-wrapper">
+            <img src="{% static 'main/img/quote@3x-a3a8f69550cc60c6395dcf6111f07d28 1.png' %}" alt="Консультація терапії" class="therapy-image">
+            <div class="text-content">
+                <h2>Психотерапія </h2>
+                <p>— це інструмент самопізнання та розвитку особистості з безліччю підходів та методів роботи. Ти не повинен розумітися на них, аби обрати спеціаліста для себе. Тобі залишається тільки відповісти на декілька питань та зосередитись на роботі над своїм запитом.</p>
+                <form action="{% url 'psychologist' %}">
+                    <button type="submit" class="btn-choose">Підібрати фахівця</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="testing-section">
+        <div class="testing-content">
+            <h2>Пропонуємо Вам пройти опитування для визначення Вашого стану.</h2>
+            <p>Прочитайте уважно кожне твердження і виберіть ту відповідь, яка найбільше відповідає тому, як Ви почували себе на минулому тижні. Не думайте надто довго над кожним твердженням, оскільки Ваша перша реакція буде зазвичай найвірнішою.</p>
+            <form action="{% url 'test' %}" method="get">
+                <button type="submit" class="btn-test">Пройти тест</button>
+            </form>
+        </div>
+        <div class="testing-image">
+            <img src="{% static 'main/img/image 6.png' %}" alt="Тестування">
+        </div>
+    </section>  
+{% endblock %}

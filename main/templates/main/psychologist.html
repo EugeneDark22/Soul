@@ -1,0 +1,18 @@
+{% extends 'main/base_index.html' %}
+
+{% block title %}Підбір психологів - SoulCraft{% endblock %}
+
+{% load static %}
+
+{% block content %}
+    <div class="center-wrapper">
+        <div class="psychologist-selection-container">
+            <h1>Підбір перевіреного психолога</h1>
+            <form method="post" class="psychologist-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="submit-btn">Далі</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

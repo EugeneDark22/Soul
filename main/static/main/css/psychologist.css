@@ -1,0 +1,52 @@
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 200px;  /* Задає відступ зліва */
+    padding-right: 200px; /* Задає відступ справа */
+}
+
+.psychologist-selection-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+
+}
+
+.psychologist-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.psychologist-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.psychologist-form .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.psychologist-form .submit-btn:hover {
+    background-color: #45a049;
+}
+
+.psychologist-form label, .psychologist-form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.psychologist-form input[type='radio'], .psychologist-form input[type='checkbox'] {
+    margin-right: 5px;
+}

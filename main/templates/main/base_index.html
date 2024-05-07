@@ -1,0 +1,76 @@
+{% load static %}
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}SoulCraft{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/sp.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/specialist_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/booking_page.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/psychologist.css' %}">
+    <script src="{% static 'main/js/booking.js' %}"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="menu-left">
+                <a href="{% url 'home' %}" class="logo">SoulCraft</a>
+                <ul>
+                    <li><a href="{% url 'home' %}">Головна</a></li>
+                    <li><a href="#">Про Нас</a></li>
+                    <li><a href="{% url 'specialists' %}">Спеціалісти</a></li>
+                    <li><a href="#">Блог</a></li>
+                </ul>
+            </div>
+            <div class="menu-right">
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="login-button">Вийти</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="login-button">Log In</a>
+                {% endif %}
+                <a href="{% url 'test' %}" class="test-button">Психологічний Тест</a>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-column">
+                <h3>SoulCraft</h3>
+            </div>
+            <div class="footer-column">
+                <h4>Гарячі лінії</h4>
+                <ul>
+                    <li>7333 - Лінія заблокована самогубствами Lifeline Ukraine</li>
+                    <li>0 800 100 102 - Наша Національна психологічна асоціація</li>
+                    <li>0 800 30 29 29 - Лінія допомоги для ветеранів та їхніх родин Українського ветеранського фонду</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Сторінки</h4>
+                <ul>
+                    <li><a href="#">Головна</a></li>
+                    <li><a href="#">Про нас</a></li>
+                    <li><a href="#">Спеціалісти</a></li>
+                    <li><a href="#">Блог</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Зв'язатись з нами</h4>
+                <ul>
+                    <li>NurseFly is now Vivian</li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Media Enquiries</a></li>
+                    <li><a href="#">Careers at Vivian</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Copyright: SoulCraft</p>
+        </div>
+    </footer>
+</body>
+</html>

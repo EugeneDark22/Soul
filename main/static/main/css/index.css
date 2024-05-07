@@ -1,0 +1,509 @@
+body, html {
+    height: 100%; /* Встановлюємо висоту для тіла та HTML */
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Використовуємо колонковий макет */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+nav {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .menu-left,
+nav .menu-right {
+    display: flex;
+    align-items: center;
+}
+
+nav .menu-left .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f8f8f8;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+nav .menu-right .login-button,
+nav .menu-right .test-button {
+    text-decoration: none;
+    color: white;
+    background-color: #5cb85c;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+nav .menu-right .login-button:hover,
+nav .menu-right .test-button:hover {
+    background-color: #4cae4c;
+}
+
+/* Вже існуючі стилі... */
+
+/* Existing styles... */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-content .hero-form h1 {
+    color: #333;
+    font-size: 2.5rem; /* Adjust the font size as necessary */
+}
+
+.hero-content .hero-form p {
+    color: #666;
+    font-size: 1.2rem; /* Adjust the font size as necessary */
+    margin-bottom: 30px;
+}
+
+.hero-content .hero-form button {
+    font-size: 1rem;
+    color: #fff;
+    background-color: #ffd700; /* This should be the yellow color from the button */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero-content .hero-form button:hover {
+    background-color: #f0e68c;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 10px;
+    }
+
+    .hero-content .hero-form h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content .hero-form p {
+        font-size: 1rem;
+    }
+
+    .hero-content .hero-form button {
+        padding: 5px 15px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Вже існуючі стилі... */
+
+/* Стилі для нових розділів */
+.how-to-choose {
+    background-color: #f0ede5; /* фон для всього розділу */
+    padding: 50px 0;
+    text-align: center;
+}
+
+.how-to-choose h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.how-to-choose p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.choose-steps {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.step {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 240px; /* або відсоткове значення для відповідності макету */
+    margin-bottom: 30px; /* для мобільних пристроїв */
+}
+
+.step h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+/* Можливо, додаткові стилі для елементів усередині кожного кроку */
+
+/* Адаптивні налаштування */
+@media (max-width: 768px) {
+    .choose-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step {
+        width: 80%; /* Більша ширина для мобільних пристроїв */
+    }
+}
+
+.step img {
+    max-width: 100%; /* Забезпечує адаптивність зображень */
+    height: auto; /* Зберігає пропорції зображень */
+    margin-top: 20px; /* Додає простір над зображенням */
+    border-radius: 8px; /* Закруглення країв зображення, якщо це необхідно */
+}
+
+.step p {
+    font-size: 1rem; /* або розмір шрифту згідно дизайну */
+    color: #666; /* або колір тексту згідно дизайну */
+    margin-top: 10px; /* відступ зверху, відрегулюйте за необхідності */
+    margin-bottom: 10px; /* відступ знизу, відрегулюйте за необхідності */
+    text-align: center; /* якщо текст має бути по центру */
+}
+
+.about-therapy {
+    background: #144707; /* Колір фону секції */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0; /* Подушки для вертикального вирівнювання */
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 1100px; /* Максимальна ширина контенту */
+    margin: 0 auto; /* Центрування контенту */
+    background: #fff; /* Білий фон для текстового контенту */
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05); /* Тінь для блоку */
+    border-radius: 20px; /* Закруглені кути */
+    overflow: hidden; /* Щоб зображення не виходило за рамки блоку */
+}
+
+.therapy-image {
+    max-width: 40%; /* 40% від ширини content-wrapper */
+    display: block; /* Це потрібно, якщо буде використовуватись img тег */
+}
+
+.text-content {
+    padding: 40px; /* Внутрішній відступ для тексту */
+    max-width: 60%; /* 60% від ширини content-wrapper */
+    display: flex;
+    flex-direction: column; /* Елементи у колонку */
+    justify-content: center; /* Вертикальне вирівнювання */
+    text-align: left; /* Текст по лівому краю */
+}
+
+.about-therapy h2 {
+    color: #102A43; /* Темно-синій колір для заголовку */
+    font-size: 24px; /* Розмір шрифту для заголовку */
+    margin-bottom: 16px; /* Відступ між заголовком і абзацом */
+}
+
+.about-therapy p {
+    color: #102A43; /* Темно-синій колір для тексту */
+    font-size: 18px; /* Розмір шрифту для тексту */
+    line-height: 1.6; /* Міжрядковий інтервал */
+}
+
+.btn-choose {
+    background-color: #4CAF50; /* Зелений колір для кнопки */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 24px; /* Відступ зверху для кнопки */
+    border-radius: 10px; /* Закруглені кути для кнопки */
+    cursor: pointer;
+    font-size: 16px; /* Розмір шрифту для кнопки */
+    transition: background 0.3s ease-in-out;
+}
+
+.btn-choose:hover {
+    background-color: #43A047; /* Колір кнопки при наведенні */
+}
+
+/* Адаптивний дизайн */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column; /* Стопка блоків один на одному */
+    }
+
+    .therapy-image, .text-content {
+        max-width: 100%; /* 100% ширина на мобільних пристроях */
+    }
+
+    .text-content {
+        padding: 20px; /* Менший внутрішній відступ для тексту */
+    }
+}
+
+.testing-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 10%;
+    background-color: #EAE7DC; /* Підібраний колір фону */
+}
+
+.testing-content {
+    max-width: 50%;
+}
+
+.testing-image {
+    max-width: 50%;
+}
+
+.testing-section h2 {
+    font-size: 24px;
+    color: #102A43; /* Темно-синій колір */
+    margin-bottom: 20px;
+}
+
+.testing-section p {
+    font-size: 16px;
+    color: #102A43; /* Темно-синій колір */
+    margin-bottom: 30px;
+}
+
+.btn-test {
+    font-size: 16px;
+    color: white;
+    background-color: #88A308; /* Зелений колір для кнопки */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-test:hover {
+    background-color: #789c08; /* Темніший зелений при наведенні */
+}
+
+/* Адаптивні стилі */
+@media (max-width: 768px) {
+    .testing-section {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .testing-content, .testing-image {
+        max-width: 100%;
+    }
+
+    .testing-content {
+        order: 1;
+    }
+
+    .testing-image {
+        order: 2;
+        margin-bottom: 20px;
+    }
+}
+
+/* Забезпечує, що футер завжди в нижній частині */
+.site-footer {
+    flex-shrink: 0; /* Запобігає стисканню футера */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.footer-column {
+    flex: 1;
+    padding: 10px;
+}
+
+.footer-column h4 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.footer-column ul li a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #333;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #bbb5b5;
+    padding-top: 10px;
+}
+
+.site-footer {
+    margin-top: auto; /* Автоматично вирівнює футер в нижній частині */
+}
+
+/* Забезпечує, що основний вміст заповнює простір */
+.content {
+    flex: 1 0 auto;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        margin-bottom: 20px;
+    }
+
+    .footer-bottom {
+        margin-top: 0;
+    }
+}
+
+
+
+/* Стилі для секції зі списком психологів */
+.psychologists-list {
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.psychologist-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px; /* Задайте необхідну ширину картки */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    margin: 20px;
+    padding: 20px;
+}
+
+.psychologist-photo img {
+    width: 150px; /* Вказуємо ширину зображення */
+    height: 150px; /* Вказуємо висоту зображення */
+    object-fit: cover; /* Забезпечує, щоб зображення покривало весь контейнер */
+    border-radius: 50%; /* Робить зображення круглим */
+    margin-bottom: 20px;
+}
+
+.psychologist-info h3 {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.psychologist-info p {
+    font-size: 1rem;
+    text-align: center;
+    color: #666;
+}
+
+.psychologist-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.psychologist-rating span {
+    margin-left: 5px;
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.psychologist-description {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.psychologist-card button {
+    border: none;
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 20px; /* Робить краї кнопки закругленими */
+}
+
+/* Додайте медіа-запити для респонсивного дизайну */
+@media (max-width: 768px) {
+    .psychologist-card {
+        width: 90%;
+    }
+}

@@ -1,0 +1,26 @@
+{% extends 'main/base_index.html' %}
+
+{% block title %}Логін - SoulCraft{% endblock %}
+{% load static %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="login-box">
+        <h2 class="login-title">Вхід</h2>
+        <form class="login-form" method="post" action="{% if specialist_id %}{% url 'login_with_specialist' specialist_id %}{% else %}{% url 'login' %}{% endif %}">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" id="username" name="username" placeholder="Ім'я користувача" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="Пароль" required>
+            </div>
+            {% if specialist_id %}
+                <input type="hidden" name="specialist_id" value="{{ specialist_id }}">
+            {% endif %}
+            <button type="submit" class="submit-button">Увійти</button>
+        </form>
+        <p class="registration-text">Якщо ви ще не зареєстровані, будь ласка, <a href="{% if specialist_id %}{% url 'registration_with_specialist' specialist_id %}{% else %}{% url 'registration_view' %}{% endif %}">зареєструйтеся</a>.</p>
+    </div>
+</div>
+{% endblock %}

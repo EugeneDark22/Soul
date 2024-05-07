@@ -1,0 +1,256 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.profile-container {
+    display: flex;
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.profile-image img {
+    width: 300px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 10px; /* Optional rounded corners */
+}
+
+.profile-info {
+    padding-left: 20px;
+    flex-grow: 1;
+     padding-bottom: 40px;
+}
+
+.profile-info h1 {
+    margin-top: 0;
+    color: #333;
+}
+
+.title {
+    color: #666;
+    font-size: 18px;
+}
+
+.rating {
+    color: #FFD700; /* gold color */
+    margin-top: 10px;
+}
+
+.reviews {
+    color: #666;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.experience, .price {
+    color: #444;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.appointment-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.appointment-btn:hover {
+    background-color: #45a049;
+}
+
+
+.about-me-section {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+.about-me-section h2 {
+    font-size: 24px;
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.about-me-section p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+
+.education-section {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+.education-section h2 {
+    font-size: 24px;
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.education-section p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.certificates {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.certificates img {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.topics-section {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* Світлий сірий фон */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+.topics-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.topics {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.topic-tag {
+    background-color: #d0e0e3; /* Світло-блакитний фон */
+    padding: 5px 15px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.topic-tag:hover {
+    background-color: #b2c2c4; /* Трохи темніший колір при наведенні, якщо потрібен ефект для наведення */
+}
+
+.reviews-section {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+.reviews-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.review {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.review-author {
+    font-weight: bold;
+}
+
+.review-rating {
+    color: #ffd700; /* gold color */
+}
+
+.write-review button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.write-review button:hover {
+    background-color: #45a049;
+}
+
+.write-review {
+    padding: 20px;
+    background-color: #f8f8f8; /* Світло-сірий фон для виділення форми */
+    border: 1px solid #ccc; /* Границя для форми */
+    margin-top: 20px; /* Відступ зверху для відокремлення від інших відгуків */
+}
+
+.write-review form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Відстань між полями форми */
+}
+
+.write-review label {
+    font-weight: bold; /* Жирний шрифт для підписів полів */
+}
+
+.write-review input[type="text"],
+.write-review textarea {
+    padding: 8px; /* Подушечка для текстових полів */
+    border: 1px solid #ccc; /* Границя для текстових полів */
+    border-radius: 4px; /* Слегка закруглені кути */
+    width: 100%; /* Повна ширина відносно контейнера */
+}
+
+.write-review button {
+    align-self: center; /* Центрування кнопки в контейнері */
+    width: 50%; /* Ширина кнопки */
+    max-width: 200px; /* Максимальна ширина кнопки */
+}
+
+.appointment-btn-wrapper {
+    text-align: center; /* Вирівнювання кнопки по центру батьківського блоку */
+    margin-top: 50px; /* Додавання верхнього відступу для відокремлення від інших елементів */
+    padding: 10px 0; /* Додавання падінгу для візуального відокремлення */
+}
+
+.appointment-btn {
+    background-color: #4CAF50; /* Зелений колір фону */
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px; /* Відступ зверху, якщо потрібно додаткове місце */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none; /* Видалення підкреслення, якщо це посилання */
+}
+
+.appointment-btn:hover {
+    background-color: #45a049;
+}

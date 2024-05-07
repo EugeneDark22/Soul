@@ -1,0 +1,99 @@
+.horizontal-container {
+  display: flex; /* Встановлюємо flex контейнер */
+  flex-wrap: wrap; /* Дозволяємо елементам переходити на новий рядок */
+  gap: 40px; /* Відстань між вкладеними контейнерами */
+  background: #fcf7f7;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+}
+
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap; /* Карточки будуть переходити на наступний рядок */
+  justify-content: flex-start; /* Вирівнювання карточок зліва на право */
+  align-items: flex-start; /* Вертикальне вирівнювання карточок по початку */
+  gap: 40px; /* Відстань між карточками */
+  margin-top: 20px; /* Відстань зверху для контейнера */
+  margin-right: 70px; /* Відступ зправа для контейнера */
+  margin-left:  70px; /* Відступ зліва для контейнера */
+  margin-bottom: 10px; /* Відступ знизу для контейнера */
+}
+
+
+
+.card {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 20px; /* Додали відступ знизу */
+}
+
+
+  .card-header img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .card-body {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .name {
+    margin: 10px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .title {
+    margin-bottom: 15px;
+    color: #888888;
+    font-size: 1em;
+  }
+
+  .rating {
+    margin-bottom: 15px;
+  }
+
+  .rating .reviews {
+    color: #888888;
+    font-size: 0.8em;
+  }
+
+  .description {
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .card-footer {
+    text-align: center;
+    padding: 15px 20px;
+    background: #f7f7f7;
+  }
+
+
+
+.card-footer .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Зелений колір фону */
+    color: white; /* Білий колір тексту */
+    text-align: center;
+    text-decoration: none; /* Видалення підкреслення */
+    border-radius: 5px; /* Закруглені кути */
+    font-size: 16px; /* Розмір шрифту */
+    transition: background-color 0.3s, color 0.3s; /* Анімація зміни кольору */
+    cursor: pointer; /* Курсор у вигляді руки, як для кнопки */
+}
+
+.card-footer .btn:hover {
+    background-color: #45a049; /* Темніший відтінок зеленого при наведенні */
+    color: #fff; /* Збереження білого кольору тексту при наведенні */
+}
+

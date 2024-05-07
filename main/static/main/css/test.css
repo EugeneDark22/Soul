@@ -1,0 +1,334 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+nav {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .menu-left,
+nav .menu-right {
+    display: flex;
+    align-items: center;
+}
+
+nav .menu-left .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f8f8f8;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+nav .menu-right .login-button,
+nav .menu-right .test-button {
+    text-decoration: none;
+    color: white;
+    background-color: #5cb85c;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+nav .menu-right .login-button:hover,
+nav .menu-right .test-button:hover {
+    background-color: #4cae4c;
+}
+
+
+
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em 0;
+}
+
+.hero-image {
+    width: 100%; /* Або конкретна ширина, якщо вам потрібно */
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-text {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    max-width: 600px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    background-color: #f0f0f0;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+/* ... попередні стилі ... */
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.question-block {
+    background-color: #f8f8f8;
+    border: 1px solid #e8e8e8;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.question {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.option:hover,
+.option input[type="radio"]:checked + .option-text {
+    background-color: #e9ecef;
+}
+
+.option input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* ... можливі додаткові стилі ... */
+
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.footer-column {
+    flex: 1;
+    padding: 10px;
+}
+
+.footer-column h4 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.footer-column ul li a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #333;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.site-footer {
+    margin-top: auto; /* Автоматично вирівнює футер в нижній частині */
+}
+
+/* Забезпечує, що основний вміст заповнює простір */
+.content {
+    flex: 1 0 auto;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        margin-bottom: 20px;
+    }
+
+    .footer-bottom {
+        margin-top: 0;
+    }
+}
+
+
+.result-button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Ви можете вибрати будь-який колір, який вам подобається */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Забезпечує відстань між питаннями та кнопкою */
+    font-size: 1em;
+}
+
+.result-button:hover {
+    background-color: #45a049; /* Трохи темніший відтінок для ефекту наведення */
+}
+
+/* Для забезпечення відцентрованого розташування кнопки */
+.submit-block {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* test_result */
+.results h3 {
+    color: #333;
+}
+
+.results p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.normal {
+    color: green;
+}
+
+.subclinical {
+    color: orange;
+}
+
+.clinical {
+    color: red;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.retry-button,
+.psychologist-button {
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    background-color: #5C6BC0; /* Або будь-який інший колір, який ви вибрали */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.psychologist-button {
+    background-color: #66BB6A; /* Інший колір для кнопки "Звернутися до психолога" */
+}
+
+.retry-button:hover,
+.psychologist-button:hover {
+    background-color: #3949AB; /* Змініть на більш темний відтінок при наведенні */
+}
+
+.content2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.disclaimer {
+    margin: 20px 0;
+    font-style: italic;
+}
+
+.results-layout {
+    display: flex;
+}
+
+.image-block {
+    flex: 1; /* або будь-яке інше значення, яке краще підходить для вашого дизайну */
+}
+
+.text-block {
+    flex: 2; /* або будь-яке інше значення, яке краще підходить для вашого дизайну */
+    padding-left: 20px; /* відступ зліва, щоб забезпечити простір між картинкою та текстом */
+}
+
+.next-steps {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f7f7f7; /* Світлий фон для виділення цього блоку */
+    border-radius: 8px; /* Заокруглені кути */
+    font-size: 1em; /* Розмір шрифта */
+    line-height: 1.6; /* Міжрядковий інтервал */
+    color: #333; /* Колір тексту */
+}
+
+

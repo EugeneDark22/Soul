@@ -1,0 +1,64 @@
+{% extends 'main/base_index.html' %}
+
+{% block title %}{{ specialist.name }} - SoulCraft{% endblock %}
+{% load static %}
+{% load rating_tags %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-image">
+        <img src="{{ specialist.image.url }}" alt="{{ specialist.name }}">
+    </div>
+    <div class="profile-info">
+        <h1>{{ specialist.name }}</h1>
+        <div class="rating">
+            {{ specialist.average_rating|star_rating }}
+            <span class="reviews">{{ specialist.reviews_count }} відгуків</span>
+        </div>
+        <div class="experience">{{ specialist.experience_detail }}</div>
+        <div class="price">{{ specialist.service_price }}₴/год.
+        </div>
+        <div class="appointment-btn-wrapper"> <!-- Обгортка для кнопки запису -->
+            <a href="{% url 'login_with_specialist' specialist.id %}" class="appointment-btn">Записатись</a>
+        </div>
+    </div>
+</div>
+<div class="about-me-section">
+    <h2>Про мене</h2>
+    <p>{{ specialist.about_me }}</p>
+</div>
+<div class="education-section">
+    <h2>Моя освіта</h2>
+    <p>{{ specialist.education }}</p>
+    <div class="certificates">
+        {% for cert in specialist.certifications.all %}
+            <img src="{{ cert.image.url }}" alt="Сертифікат">
+        {% endfor %}
+    </div>
+</div>
+<div class="topics-section">
+    <h2>Я працюю за запитами</h2>
+    <div class="topics">
+        {% for tag in specialist.tags.all %}
+            <span class="topic-tag">{{ tag.name }}</span>
+        {% endfor %}
+    </div>
+</div>
+<div class="reviews-section">
+    <h2>Відгуки</h2>
+    {% for review in reviews %}
+        <div class="review">
+            <p class="review-author">{{ review.author_name }}</p>
+            <p class="review-rating">{{ review.rating|star_rating }}</p>
+            <p>{{ review.text }}</p>
+        </div>
+    {% endfor %}
+    <div class="write-review">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Написати відгук</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

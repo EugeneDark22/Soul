@@ -1,0 +1,21 @@
+{% extends 'main/base_index.html' %}
+
+{% block title %}Запис - {{ specialist.name }} - SoulCraft{% endblock %}
+{% load static %}
+
+{% block content %}
+<div class="booking-container">
+    <form id="booking-form" class="form-section">
+        <h2>Інформація про запис</h2>
+        <p><strong>Спеціаліст:</strong> {{ specialist.name }}</p>
+        <label for="appointment_date">Дата:</label>
+        <input type="date" id="appointment_date" name="appointment_date" required>
+        <label for="appointment_time">Час:</label>
+        <input type="time" id="appointment_time" name="appointment_time" required>
+        <p><strong>Тривалість сеції:</strong> 60 хвилин</p>
+        <p><strong>Вартість:</strong> {{ specialist.service_price }}₴</p>
+        <button type="button" onclick="submitAppointmentForm({{ specialist.id }})">Підтвердити запис</button>
+    </form>
+    <div id="booking-response"></div>
+</div>
+{% endblock %}

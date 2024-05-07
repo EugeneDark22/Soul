@@ -1,0 +1,35 @@
+{% extends 'main/base_index.html' %}
+
+{% block title %}Спеціалісти - SoulCraft{% endblock %}
+{% load static %}
+{% load rating_tags %}
+{% block content %}
+<div class="horizontal-container">
+  {% for specialist in specialists %}
+    <div class="cards-container">
+      <div class="card">
+        <div class="card-header">
+          <img src="{{ specialist.image.url }}" alt="Profile Image" class="profile-img">
+        </div>
+        <div class="card-body">
+          <h2 class="name">{{ specialist.name }}</h2>
+          <p class="tags">
+            {% for tag in specialist.tags.all %}
+              <span class="tag">{{ tag.name }}</span>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+          <div class="rating">
+            <!-- Display rating stars based on the 'rating' field -->
+            {{ specialist.average_rating|star_rating }}
+            <span class="reviews">{{ specialist.reviews_count }} відгуків</span>
+          </div>
+          <p class="description">{{ specialist.description }}</p>
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'specialist_detail' specialist.id %}" class="btn">Перейти</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
