@@ -66,31 +66,37 @@ def test_result(request):
     else:
         # Перенаправити користувача назад на форму тестування, якщо немає збережених результатів
         return redirect('test')
-
 def psychologist(request):
     if request.method == 'POST':
         form = PsychologistSelectionForm(request.POST)
         if form.is_valid():
-            selected_tags = [value for key, value in form.cleaned_data.items() if value]
-            specialists = Specialist.objects.filter(tags__name__in=selected_tags).distinct()
-            return render(request, 'main/specialists.html', {'specialists': specialists})
+            selected_tags = []
+            # Додаємо вибрані відповіді у список тегів
+            for field_name in ['therapy_type', 'gender', 'price', 'specialist_type', 'method', 'age_preference']:
+                if form.cleaned_data[field_name]:
+                    selected_tags.append(form.cleaned_data[field_name])
+            for multi_choice_field in ['experience', 'primary_issues']:
+                selected_tags.extend(form.cleaned_data.get(multi_choice_field, []))
+
+            # Зберігаємо вибрані теги у сесію для передачі між запитами
+            request.session['selected_tags'] = selected_tags
+            # Переадресація на сторінку зі спеціалістами
+            return redirect('specialists')
     else:
         form = PsychologistSelectionForm()
 
-    # Завжди повертайте HttpResponse
     return render(request, 'main/psychologist.html', {'form': form})
 
 def specialists(request):
     selected_tags = request.session.get('selected_tags', [])
     if selected_tags:
-        # Фільтрація спеціалістів, що мають хоча б один із вибраних тегів
+        # Фільтруємо спеціалістів, які мають хоча б один із вибраних тегів
         specialists = Specialist.objects.filter(tags__name__in=selected_tags).distinct()
     else:
+        # Якщо тегів не було вибрано, показуємо усіх спеціалістів
         specialists = Specialist.objects.all()
 
     return render(request, 'main/specialists.html', {'specialists': specialists})
-
-
 
 def specialist_detail(request, id):
     specialist = get_object_or_404(Specialist, pk=id)

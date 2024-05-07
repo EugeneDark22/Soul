@@ -170,7 +170,7 @@ nav .menu-right .test-button:hover {
 }
 
 .footer-column h4 {
-    color: #333;
+    color: #fff; /* Білий колір для заголовків */
     margin-bottom: 10px;
 }
 
@@ -185,23 +185,27 @@ nav .menu-right .test-button:hover {
 }
 
 .footer-column ul li a {
-    color: #666;
+    color: #fff; /* Білий колір для посилань */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-column ul li a:hover {
-    color: #333;
+    color: #ccc; /* Світліше відтінок сірого для посилань при наведенні */
 }
 
 .footer-bottom {
     text-align: center;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #444; /* Темно-сірий колір для лінії на верху футера */
     padding-top: 10px;
 }
 
 .site-footer {
     margin-top: auto; /* Автоматично вирівнює футер в нижній частині */
+    flex-shrink: 0; /* Запобігає стисканню футера */
+    margin-top: auto;
+    background-color: #000; /* Чорний колір фону */
+    color: #fff; /* Білий колір тексту */
 }
 
 /* Забезпечує, що основний вміст заповнює простір */

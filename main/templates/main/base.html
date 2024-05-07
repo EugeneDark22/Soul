@@ -2,7 +2,6 @@
 
 {% load static %}
 
-<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -25,7 +24,7 @@
                 {% if request.user.is_authenticated %}
                     <a href="{% url 'logout' %}" class="login-button">Вийти</a>
                 {% else %}
-                    <a href="{% url 'login' %}" class="login-button">Log In</a>
+                    <a href="{% url 'login' %}" class="login-button">Вхід</a>
                 {% endif %}
                 <a href="{% url 'test' %}" class="test-button">Психологічний Тест</a>
             </div>

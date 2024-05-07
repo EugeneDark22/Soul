@@ -3,7 +3,9 @@ body, html {
     margin: 0;
     display: flex;
     flex-direction: column; /* Використовуємо колонковий макет */
+    padding: 0;
 }
+
 
 header {
     background-color: #333;
@@ -358,6 +360,9 @@ nav .menu-right .test-button:hover {
 /* Забезпечує, що футер завжди в нижній частині */
 .site-footer {
     flex-shrink: 0; /* Запобігає стисканню футера */
+    margin-top: auto;
+    background-color: #000; /* Чорний колір фону */
+    color: #fff; /* Білий колір тексту */
 }
 
 .container {
@@ -369,14 +374,13 @@ nav .menu-right .test-button:hover {
     margin: 0 auto;
 }
 
-
 .footer-column {
     flex: 1;
     padding: 10px;
 }
 
 .footer-column h4 {
-    color: #333;
+    color: #fff; /* Білий колір для заголовків */
     margin-bottom: 10px;
 }
 
@@ -387,27 +391,22 @@ nav .menu-right .test-button:hover {
 
 .footer-column ul li {
     margin-bottom: 5px;
-    color: #666;
 }
 
 .footer-column ul li a {
-    color: #666;
+    color: #fff; /* Білий колір для посилань */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-column ul li a:hover {
-    color: #333;
+    color: #ccc; /* Світліше відтінок сірого для посилань при наведенні */
 }
 
 .footer-bottom {
     text-align: center;
-    border-top: 1px solid #bbb5b5;
+    border-top: 1px solid #444; /* Темно-сірий колір для лінії на верху футера */
     padding-top: 10px;
-}
-
-.site-footer {
-    margin-top: auto; /* Автоматично вирівнює футер в нижній частині */
 }
 
 /* Забезпечує, що основний вміст заповнює простір */
@@ -506,4 +505,77 @@ nav .menu-right .test-button:hover {
     .psychologist-card {
         width: 90%;
     }
+}
+
+
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em 0;
+}
+
+.hero-image {
+    width: 100%; /* Або конкретна ширина, якщо вам потрібно */
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-text {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    max-width: 600px;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.question-block {
+    background-color: #f8f8f8;
+    border: 1px solid #e8e8e8;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.question {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.option:hover,
+.option input[type="radio"]:checked + .option-text {
+    background-color: #e9ecef;
+}
+
+.option input[type="radio"] {
+    margin-right: 10px;
 }

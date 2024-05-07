@@ -1,15 +1,18 @@
 from django.contrib import admin
 from .models import Specialist, Tag, Certification, Review, Appointment
 
-
 class CertificationInline(admin.TabularInline):
     model = Certification
-    extra = 1  # How many rows to show
+    extra = 1
 
+class TagAdmin(admin.ModelAdmin):
+    list_display = ['name', 'category']
+    list_filter = ['category']
+    search_fields = ['name']
 
 class SpecialistAdmin(admin.ModelAdmin):
-    list_display = ('name', 'rating', 'reviews_count', 'service_price')  # Змінено на reviews_count
-    list_filter = ('rating', 'tags')
+    list_display = ('name', 'rating', 'reviews_count', 'service_price')
+    list_filter = ('rating', 'tags__category')
     search_fields = ('name', 'description', 'about_me', 'education')
     filter_horizontal = ('tags',)
     fieldsets = (
@@ -18,16 +21,16 @@ class SpecialistAdmin(admin.ModelAdmin):
         }),
         ('Advanced options', {
             'classes': ('collapse',),
-            'fields': ('rating', 'service_price', 'about_me', 'education'),  # Вилучено reviews з налаштувань
+            'fields': ('rating', 'service_price', 'about_me', 'education'),
         }),
     )
     inlines = [CertificationInline]
 
     def reviews_count(self, obj):
-        return obj.reviews.count()  # Використовує related_name 'reviews' для підрахунку відгуків
-    reviews_count.short_description = 'Кількість відгуків'  # Задає назву колонки
+        return obj.reviews.count()
+    reviews_count.short_description = 'Кількість відгуків'
 
 admin.site.register(Specialist, SpecialistAdmin)
-admin.site.register(Tag)
+admin.site.register(Tag, TagAdmin)
 admin.site.register(Certification)
 admin.site.register(Appointment)

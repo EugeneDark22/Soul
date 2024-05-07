@@ -2,7 +2,16 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 20px;
+}
+
+.main-profile-container {
+    width: 90%; /* або інша відповідна ширина */
+    max-width: 1200px; /* максимальна ширина для контролю розміру на великих екранах */
+    margin: 20px auto; /* автоматичні відступи для центрування */
+    padding: 20px; /* внутрішні відступи */
+    background-color: #fff; /* фоновий колір */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* тінь для візуальної відокремленості */
+    border-radius: 8px; /* закруглені кути */
 }
 
 .profile-container {

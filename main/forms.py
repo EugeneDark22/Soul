@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.forms import DateInput, TimeInput
 from django.utils.translation import gettext_lazy as _
 from .models import Review, UserProfile
-
+from .models import Tag
 
 class AnxietyDepressionForm(forms.Form):
     SCORING = [
@@ -91,73 +91,21 @@ class RegistrationForm(UserCreationForm):
 
 
 class PsychologistSelectionForm(forms.Form):
-    THERAPY_TYPE_CHOICES = [
-        ('personal', 'Особиста'),
-        ('couple', 'Парна'),
-        ('child', 'Дитяча'),
-    ]
-    GENDER_CHOICES = [
-        ('male', 'Чоловік'),
-        ('female', 'Жінка'),
-    ]
-    PRICE_CHOICES = [
-        ('under_1000', 'Менше 1000 грн'),
-        ('1000_2000', '1000 - 2000 грн'),
-        ('over_2000', 'Більше 2000 грн'),
-    ]
-    EXPERIENCE_CHOICES = [
-        ('military', 'Військовими'),
-        ('lgbtq', 'ЛГБТК+'),
-    ]
-    SPECIALIST_TYPE_CHOICES = [
-        ('psychologist', 'Психолог'),
-        ('psychotherapist', 'Психотерапевт'),
-        ('psychiatrist', 'Психіатр'),
-        ('sexologist', 'Сексолог'),
-        ('coach', 'Коуч'),
-        ('psychoanalyst', 'Психоаналітик'),
-        ('gestalt', 'Гештальт-терапевт'),
-        ('art_therapist', 'Арт-терапевт'),
-    ]
-    METHOD_CHOICES = [
-        ('cbt', 'КПТ'),
-        ('psychoanalysis', 'Психоаналіз'),
-        ('sexology', 'Сексологія'),
-        ('coaching', 'Коучинг'),
-        ('gestalt', 'Гештальт-підхід'),
-        ('integrative', 'Інтегративний підхід'),
-    ]
-    AGE_PREFERENCE_CHOICES = [
-        ('young', 'З молодим психологом'),
-        ('senior', 'З психологом старшого віку 40+'),
-    ]
-    ISSUE_CHOICES = [
-        ('loneliness', 'Самотність'),
-        ('irritability', 'Дратівливість'),
-        ('anxiety', 'Тривожні стани'),
-        ('suicidal_attempts', 'Спроби самогубства'),
-        ('panic_attacks', 'Панічні атаки'),
-        ('addictions', 'Залежності'),
-        ('procrastination', 'Прокрастинація'),
-        ('eating_disorders', 'Ставлення до їжі'),
-        ('depression', 'Депресія'),
-        ('family_relations', 'Сімейні стосунки'),
-        ('romantic_relations', 'Романтичні стосунки'),
-        ('abuse', 'Аб’юз, насилля'),
-        ('codependency', 'Співзалежність'),
-        ('intimate_relations', 'Інтимні стосунки'),
-        ('ptsd', 'ПТСР'),
-        ('crisis_and_trauma', 'Кризи і травми'),
-        ('loss_and_grief', 'Втрата та горе'),
-        ('postpartum_depression', 'Післяродова депресія'),
-        ('adaptation', 'Адаптація, еміграція'),
-    ]
+    # Завантаження виборів для кожної категорії з бази даних
+    therapy_type_choices = list(Tag.objects.filter(category='therapy_type').values_list('name', 'name'))
+    gender_choices = list(Tag.objects.filter(category='gender').values_list('name', 'name'))
+    price_choices = list(Tag.objects.filter(category='price').values_list('name', 'name'))
+    experience_choices = list(Tag.objects.filter(category='experience').values_list('name', 'name'))
+    specialist_type_choices = list(Tag.objects.filter(category='specialist_type').values_list('name', 'name'))
+    method_choices = list(Tag.objects.filter(category='method').values_list('name', 'name'))
+    age_preference_choices = list(Tag.objects.filter(category='age_preference').values_list('name', 'name'))
+    issue_choices = list(Tag.objects.filter(category='issue').values_list('name', 'name'))
 
-    therapy_type = forms.ChoiceField(choices=THERAPY_TYPE_CHOICES, widget=forms.RadioSelect, label='Який тип терапії вас цікавить?')
-    gender = forms.ChoiceField(choices=GENDER_CHOICES, widget=forms.RadioSelect, label='Якої статі має бути фахівець?')
-    price = forms.ChoiceField(choices=PRICE_CHOICES, widget=forms.RadioSelect, label='Яка ціна за сесію буде для вас комфортна?')
-    experience = forms.MultipleChoiceField(choices=EXPERIENCE_CHOICES, widget=forms.CheckboxSelectMultiple, label='Спеціаліст має досвід роботи')
-    specialist_type = forms.ChoiceField(choices=SPECIALIST_TYPE_CHOICES, widget=forms.RadioSelect, label='Якого спеціаліста Ви шукаєте?')
-    method = forms.ChoiceField(choices=METHOD_CHOICES, widget=forms.RadioSelect, label='Якому методу роботи віддаєте перевагу?')
-    age_preference = forms.ChoiceField(choices=AGE_PREFERENCE_CHOICES, widget=forms.RadioSelect, label='З яким психологом Вам буде комфортніше працювати?')
-    primary_issues = forms.MultipleChoiceField(choices=ISSUE_CHOICES, widget=forms.CheckboxSelectMultiple, label='Оберіть до 3 запитів, які ви бажаєте обговорити першочергово')
+    therapy_type = forms.MultipleChoiceField(choices=therapy_type_choices, widget=forms.CheckboxSelectMultiple, label='Який тип терапії вас цікавить?')
+    gender = forms.MultipleChoiceField(choices=gender_choices, widget=forms.CheckboxSelectMultiple, label='Якої статі має бути фахівець?')
+    price = forms.MultipleChoiceField(choices=price_choices, widget=forms.CheckboxSelectMultiple, label='Яка ціна за сесію буде для вас комфортна?')
+    experience = forms.MultipleChoiceField(choices=experience_choices, widget=forms.CheckboxSelectMultiple, label='Спеціаліст має досвід роботи')
+    specialist_type = forms.MultipleChoiceField(choices=specialist_type_choices, widget=forms.CheckboxSelectMultiple, label='Якого спеціаліста Ви шукаєте?')
+    method = forms.MultipleChoiceField(choices=method_choices, widget=forms.CheckboxSelectMultiple, label='Якому методу роботи віддаєте перевагу?')
+    age_preference = forms.MultipleChoiceField(choices=age_preference_choices, widget=forms.CheckboxSelectMultiple, label='З яким психологом Вам буде комфортніше працювати?')
+    primary_issues = forms.MultipleChoiceField(choices=issue_choices, widget=forms.CheckboxSelectMultiple, label='Оберіть до 3 запитів, які ви бажаєте обговорити першочергово')
