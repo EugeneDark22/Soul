@@ -1,5 +1,9 @@
-body {
-    font-family: Arial, sans-serif;
+body, html {
+    height: 100%; /* Встановлюємо висоту для тіла та HTML */
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Використовуємо колонковий макет */
+    padding: 0;
 }
 
 header {

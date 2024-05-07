@@ -101,11 +101,43 @@ class PsychologistSelectionForm(forms.Form):
     age_preference_choices = list(Tag.objects.filter(category='age_preference').values_list('name', 'name'))
     issue_choices = list(Tag.objects.filter(category='issue').values_list('name', 'name'))
 
-    therapy_type = forms.MultipleChoiceField(choices=therapy_type_choices, widget=forms.CheckboxSelectMultiple, label='Який тип терапії вас цікавить?')
-    gender = forms.MultipleChoiceField(choices=gender_choices, widget=forms.CheckboxSelectMultiple, label='Якої статі має бути фахівець?')
-    price = forms.MultipleChoiceField(choices=price_choices, widget=forms.CheckboxSelectMultiple, label='Яка ціна за сесію буде для вас комфортна?')
-    experience = forms.MultipleChoiceField(choices=experience_choices, widget=forms.CheckboxSelectMultiple, label='Спеціаліст має досвід роботи')
-    specialist_type = forms.MultipleChoiceField(choices=specialist_type_choices, widget=forms.CheckboxSelectMultiple, label='Якого спеціаліста Ви шукаєте?')
-    method = forms.MultipleChoiceField(choices=method_choices, widget=forms.CheckboxSelectMultiple, label='Якому методу роботи віддаєте перевагу?')
-    age_preference = forms.MultipleChoiceField(choices=age_preference_choices, widget=forms.CheckboxSelectMultiple, label='З яким психологом Вам буде комфортніше працювати?')
-    primary_issues = forms.MultipleChoiceField(choices=issue_choices, widget=forms.CheckboxSelectMultiple, label='Оберіть до 3 запитів, які ви бажаєте обговорити першочергово')
+    therapy_type = forms.MultipleChoiceField(
+        choices=therapy_type_choices,
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'custom-checkbox'}),
+        label='Який тип терапії вас цікавить?'
+    )
+    gender = forms.MultipleChoiceField(
+        choices=gender_choices,
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'custom-checkbox'}),
+        label='Якої статі має бути фахівець?'
+    )
+    price = forms.MultipleChoiceField(
+        choices=price_choices,
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'custom-checkbox'}),
+        label='Яка ціна за сесію буде для вас комфортна?'
+    )
+    experience = forms.MultipleChoiceField(
+        choices=experience_choices,
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'custom-checkbox'}),
+        label='Спеціаліст має досвід роботи'
+    )
+    specialist_type = forms.MultipleChoiceField(
+        choices=specialist_type_choices,
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'custom-checkbox'}),
+        label='Якого спеціаліста Ви шукаєте?'
+    )
+    method = forms.MultipleChoiceField(
+        choices=method_choices,
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'custom-checkbox'}),
+        label='Якому методу роботи віддаєте перевагу?'
+    )
+    age_preference = forms.MultipleChoiceField(
+        choices=age_preference_choices,
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'custom-checkbox'}),
+        label='З яким психологом Вам буде комфортніше працювати?'
+    )
+    primary_issues = forms.MultipleChoiceField(
+        choices=issue_choices,
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'custom-checkbox'}),
+        label='Оберіть до 3 запитів, які ви бажаєте обговорити першочергово'
+    )
