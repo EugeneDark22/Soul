@@ -115,6 +115,21 @@ nav .menu-right .test-button:hover {
     background-color: #4cae4c;
 }
 
+/* Приховує всі допоміжні тексти та списки помилок */
+.form-section .help-text,
+.form-section .errorlist,
+#id_password1_help_text, /* Специфічний ID, який може бути використаний Django */
+#id_password2_help_text { /* Припускаючи, що вони використовуються */
+    display: none !important;
+}
+
+/* Приховує допоміжні тексти спеціально для полів пароля */
+.form-section .password1 .help-text,
+.form-section .password2 .help-text {
+    display: none !important;
+}
+
+
 /* Додаткові стилі для адаптивного дизайну, якщо потрібно */
 @media (max-width: 768px) {
     .login-box {

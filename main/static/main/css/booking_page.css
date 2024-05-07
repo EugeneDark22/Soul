@@ -1,57 +1,68 @@
 .booking-container {
     display: flex;
-    min-height: 200vh; /* Встановлюємо мінімальну висоту контейнера */
-    gap: 20px;
-    padding: 100px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 40px auto;
 }
 
 .form-section {
-    background-color: white;
-    padding: 300px; /* Збільшуємо відступи для більшої вертикальної простору */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    background: white;
+    padding: 20px;
     border-radius: 8px;
-    width: 200px;
-    display: flex;
-    flex-direction: column; /* Застосовуємо колонковий макет */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-h2 {
-    font-size: 24px;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 10px;
+.form-section h2 {
+    color: #333;
+    text-align: center;
+    font-size: 22px;
     margin-bottom: 20px;
 }
 
-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
+.form-section p, .form-section label {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
 }
 
-input[type="date"],
-input[type="time"] {
+.form-section input[type="date"],
+.form-section input[type="time"] {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
+    padding: 10px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box; /* Makes sure padding doesn't affect width */
 }
 
-button {
+.form-section button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 12px 20px; /* Збільшуємо розміри кнопки для кращої видимості */
+    border-radius: 4px;
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px; /* Додаємо відступ зверху для кнопки */
+    transition: background-color 0.3s;
 }
 
-button:hover {
+.form-section button:hover {
     background-color: #45a049;
 }
 
-/* Додаткові стилі для покращення відступів і вирівнювання */
-.input-group {
-    margin-bottom: 15px; /* Забезпечуємо однорідні відступи між полями */
+#booking-response {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #dff0d8; /* Light green background for success message */
+    color: #3c763d; /* Dark green text for success message */
+    width: 100%;
+    text-align: center;
 }

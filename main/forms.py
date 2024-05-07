@@ -60,6 +60,7 @@ class ReviewForm(forms.ModelForm):
             'text': forms.Textarea(attrs={'cols': 40, 'rows': 3}),
         }
 
+
 class RegistrationForm(UserCreationForm):
     phone = forms.CharField(max_length=13, required=True, label=_("Телефон"))
 
@@ -74,11 +75,11 @@ class RegistrationForm(UserCreationForm):
             'phone': _('Телефон'),
         }
         help_texts = {
-            'username': '',
-            'email': '',
-            'password1': '',
-            'password2': '',
-            'phone': '',
+            'username': None,
+            'email': None,
+            'password1': None,
+            'password2': None,
+            'phone': None,
         }
         error_messages = {
             'username': {

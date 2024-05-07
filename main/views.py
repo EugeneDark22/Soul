@@ -88,15 +88,14 @@ def psychologist(request):
     return render(request, 'main/psychologist.html', {'form': form})
 
 def specialists(request):
-    selected_tags = request.session.get('selected_tags', [])
+    selected_tags = request.session.pop('selected_tags', None)  # Отримуємо і одразу видаляємо з сесії
     if selected_tags:
-        # Фільтруємо спеціалістів, які мають хоча б один із вибраних тегів
         specialists = Specialist.objects.filter(tags__name__in=selected_tags).distinct()
     else:
-        # Якщо тегів не було вибрано, показуємо усіх спеціалістів
         specialists = Specialist.objects.all()
 
     return render(request, 'main/specialists.html', {'specialists': specialists})
+
 
 def specialist_detail(request, id):
     specialist = get_object_or_404(Specialist, pk=id)

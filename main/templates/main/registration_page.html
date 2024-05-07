@@ -1,35 +1,32 @@
 {% extends 'main/base_index.html' %}
 
-{% block title %}Реєстрація- SoulCraft{% endblock %}
+{% block title %}Реєстрація - SoulCraft{% endblock %}
 {% load static %}
 
 {% block content %}
 <div class="login-wrapper">
     <div class="login-box">
         <h2 class="login-title">Реєстрація</h2>
-        {% if specialist_id %}
-            <!-- Форма реєстрації з specialist_id -->
-            <form class="login-form" method="post" action="{% url 'registration_with_specialist' specialist_id %}">
-        {% else %}
-            <!-- Форма реєстрації без specialist_id -->
-            <form class="login-form" method="post" action="{% url 'registration_view' %}">
-        {% endif %}
+        <form class="login-form" method="post"
+            action="{% if specialist_id %}{% url 'registration_with_specialist' specialist_id %}{% else %}{% url 'registration_view' %}{% endif %}">
             {% csrf_token %}
-            {{ form.as_p }}
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                <!-- Вивід помилок для поля -->
+                {% if field.errors %}
+                    <div class="errorlist">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
             <div class="input-group">
                 <button type="submit" class="submit-button">Зареєструватися</button>
             </div>
         </form>
         <p>Вже зареєстровані?
-            {% if specialist_id %}
-                <!-- Посилання на вхід з specialist_id -->
-                <a href="{% url 'login_with_specialist' specialist_id %}">Увійти</a>
-            {% else %}
-                <!-- Посилання на звичайну сторінку входу -->
-                <a href="{% url 'login' %}">Увійти</a>
-            {% endif %}
+            <a href="{% if specialist_id %}{% url 'login_with_specialist' specialist_id %}{% else %}{% url 'login' %}{% endif %}">Увійти</a>
         </p>
-
     </div>
 </div>
 {% endblock %}
