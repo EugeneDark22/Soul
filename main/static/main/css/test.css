@@ -52,7 +52,8 @@ nav ul li a {
 }
 
 nav .menu-right .login-button,
-nav .menu-right .test-button {
+nav .menu-right .test-button
+nav .menu-right .profile-button{
     text-decoration: none;
     color: white;
     background-color: #5cb85c;
@@ -62,7 +63,8 @@ nav .menu-right .test-button {
 }
 
 nav .menu-right .login-button:hover,
-nav .menu-right .test-button:hover {
+nav .menu-right .test-button:hover
+nav .menu-right .profile-button{
     background-color: #4cae4c;
 }
 
@@ -337,6 +339,66 @@ nav .menu-right .test-button:hover {
     font-size: 1em; /* Розмір шрифта */
     line-height: 1.6; /* Міжрядковий інтервал */
     color: #333; /* Колір тексту */
+}
+
+
+
+.sc-blog-page {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    background-color: #f9f9f9;
+}
+
+.sc-blog-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.sc-blog-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 400px; /* фіксована висота для карточок */
+    position: relative; /* для позиціонування кнопки */
+}
+
+.sc-blog-card img {
+    width: 100%;
+    height: auto;
+    max-height: 50%; /* обмеження максимальної висоти зображення */
+    object-fit: cover;
+}
+
+.sc-blog-card h3 {
+    color: #333;
+    font-size: 18px;
+    margin: 16px 0;
+    text-align: center;
+    flex-grow: 1; /* забезпечує, що заголовок штовхає кнопку вниз */
+}
+
+.sc-blog-card button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute; /* абсолютне позиціонування кнопки */
+    bottom: 20px; /* відстань від нижнього краю карточки */
+}
+
+.sc-blog-card button:hover {
+    background-color: #45a049;
 }
 
 

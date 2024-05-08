@@ -4,8 +4,8 @@ from django.http import JsonResponse
 from django.utils.dateparse import parse_date, parse_time
 from django.views.decorators.csrf import csrf_exempt
 
-from .forms import AnxietyDepressionForm, RegistrationForm, PsychologistSelectionForm
-from .models import Specialist, Appointment  # Імпорт моделі Specialist
+from .forms import AnxietyDepressionForm, RegistrationForm, PsychologistSelectionForm, ProfileForm
+from .models import Specialist, Appointment, UserProfile  # Імпорт моделі Specialist
 from .forms import ReviewForm
 from django.contrib.auth import login as auth_login, authenticate, logout
 
@@ -167,3 +167,26 @@ def booking_page(request, specialist_id):
 def custom_logout_view(request):
     logout(request)  # Вихід користувача
     return redirect('home')  # Переадресація на головну сторінку
+
+@login_required
+def profile(request):
+    user = request.user
+    user_profile, created = UserProfile.objects.get_or_create(user=user)
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=user_profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')  # Назва URL для переадресації на профіль
+    else:
+        form = ProfileForm(instance=user_profile)
+
+    return render(request, 'main/profile.html', {'form': form})
+
+def about(request):
+    # Відображення головної сторінки
+    return render(request, 'main/about.html')
+
+def blog(request):
+    # Відображення головної сторінки
+    return render(request, 'main/blog.html')

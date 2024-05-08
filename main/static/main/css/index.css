@@ -53,7 +53,8 @@ nav ul li a {
 }
 
 nav .menu-right .login-button,
-nav .menu-right .test-button {
+nav .menu-right .test-button,
+nav .menu-right .profile-button {
     text-decoration: none;
     color: white;
     background-color: #5cb85c;
@@ -63,7 +64,8 @@ nav .menu-right .test-button {
 }
 
 nav .menu-right .login-button:hover,
-nav .menu-right .test-button:hover {
+nav .menu-right .test-button:hover,
+nav .menu-right .profile-button{
     background-color: #4cae4c;
 }
 
@@ -578,4 +580,234 @@ nav .menu-right .test-button:hover {
 
 .option input[type="radio"] {
     margin-right: 10px;
+}
+
+
+
+
+.sc-profile-wrapper {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.sc-profile-header {
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.sc-profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    border: 3px solid #e0e0e0;
+}
+
+.sc-profile-name {
+    font-size: 24px;
+    color: #333;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.sc-profile-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sc-form-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sc-form-button:hover {
+    background-color: #45a049;
+}
+
+.sc-profile-sessions {
+    padding: 20px 0;
+}
+
+.sc-sessions-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.sc-session-item {
+    background: #f8f8f8;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.sc-session-date, .sc-session-time, .sc-session-with {
+    color: #666;
+    display: block;
+    margin: 5px 0;
+}
+
+.sc-no-sessions {
+    color: #666;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .sc-profile-wrapper {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .sc-profile-form form, .sc-form-button {
+        width: 100%;
+    }
+}
+
+
+
+.sc-about-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+}
+
+.sc-about-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 900px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.sc-about-image {
+    flex-basis: 40%;
+    position: relative;
+    text-align: center; /* Центрування тексту під зображенням */
+}
+
+.sc-about-image img {
+    width: 100%;
+    height: auto;
+}
+
+.sc-about-caption {
+    margin-top: 8px; /* Відступ між зображенням і текстом */
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+
+.sc-about-content {
+    flex-basis: 60%;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sc-about-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.sc-about-text {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Додаємо медіа-запити для адаптивного дизайну */
+@media (max-width: 768px) {
+    .sc-about-container {
+        flex-direction: column;
+    }
+
+    .sc-about-image, .sc-about-content {
+        flex-basis: 100%;
+    }
+
+    .sc-about-content {
+        padding: 20px;
+    }
+}
+
+
+
+
+.sc-blog-page {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    background-color: #f9f9f9;
+}
+
+.sc-blog-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.sc-blog-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 400px; /* фіксована висота для карточок */
+    position: relative; /* для позиціонування кнопки */
+}
+
+.sc-blog-card img {
+    width: 100%;
+    height: auto;
+    max-height: 50%; /* обмеження максимальної висоти зображення */
+    object-fit: cover;
+}
+
+.sc-blog-card h3 {
+    color: #333;
+    font-size: 18px;
+    margin: 16px 0;
+    text-align: center;
+    flex-grow: 1; /* забезпечує, що заголовок штовхає кнопку вниз */
+}
+
+.sc-blog-card button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute; /* абсолютне позиціонування кнопки */
+    bottom: 20px; /* відстань від нижнього краю карточки */
+}
+
+.sc-blog-card button:hover {
+    background-color: #45a049;
 }

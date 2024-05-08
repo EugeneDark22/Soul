@@ -18,6 +18,9 @@ urlpatterns = [
     path('registration/', views.registration_view, name='registration_view'),
     path('registration/<int:specialist_id>/', views.registration_with_specialist, name='registration_with_specialist'),
     path('booking/<int:specialist_id>/', views.booking_page, name='booking_page'),
+    path('profile/', views.profile, name='profile'),
+    path('about/', views.about, name='about'),
+    path('blog/', views.blog, name='blog'),
     path('logout/', custom_logout_view, name='logout'),
 ]
 

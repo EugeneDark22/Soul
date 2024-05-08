@@ -1,0 +1,35 @@
+{% extends 'main/base_index.html' %}
+
+{% block title %}Профіль - SoulCraft{% endblock %}
+{% load static %}
+
+{% block content %}
+<div class="sc-profile-wrapper">
+    <div class="sc-profile-header">
+        <img src="{{ user.userprofile.image.url }}" alt="Профіль користувача" class="sc-profile-image">
+        <h1 class="sc-profile-name">{{ user.first_name }} {{ user.last_name }}</h1>
+    </div>
+    <div class="sc-profile-form">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="sc-form-button">Оновити профіль</button>
+        </form>
+    </div>
+    <div class="sc-profile-sessions">
+        <h2 class="sc-sessions-title">Майбутні сесії</h2>
+        {% for appointment in user.appointment_set.all %}
+        <div class="sc-session-item">
+            <span class="sc-session-date">{{ appointment.date|date:"d M" }}</span>
+            <span class="sc-session-time">{{ appointment.time|date:"l H:i" }}</span>
+            <span class="sc-session-with">Сеанс з {{ appointment.specialist.name }}</span>
+        </div>
+        {% empty %}
+        <p class="sc-no-sessions">Немає запланованих сесій.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+
+

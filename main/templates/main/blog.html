@@ -1,0 +1,31 @@
+{% extends 'main/base_index.html' %}
+
+{% block title %}Блог - SoulCraft{% endblock %}
+{% load static %}
+
+{% block content %}
+<div class="sc-blog-page">
+    <div class="sc-blog-card-container">
+        <div class="sc-blog-card">
+            <img src="{% static 'main/img/1.jpg' %}" alt="Психологічна підтримка">
+            <h3>Чому психологічна підтримка важлива для вашого бізнесу?</h3>
+            <button onclick="location.href='#'">Перейти</button>
+        </div>
+        <div class="sc-blog-card">
+            <img src="{% static 'main/img/2.jpg' %}" alt="Вибір спеціаліста">
+            <h3>Як обрати свого спеціаліста?</h3>
+            <button onclick="location.href='#'">Перейти</button>
+        </div>
+        <div class="sc-blog-card">
+            <img src="{% static 'main/img/3.jpg' %}" alt="Онлайн терапія">
+            <h3>Чи ефективна терапія онлайн?</h3>
+            <button onclick="location.href='#'">Перейти</button>
+        </div>
+        <div class="sc-blog-card">
+            <img src="{% static 'main/img/4.jpg' %}" alt="Методи психотерапії">
+            <h3>Які є методи психотерапії?</h3>
+            <button onclick="location.href='#'">Перейти</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -142,3 +142,9 @@ class PsychologistSelectionForm(forms.Form):
         widget=forms.CheckboxSelectMultiple(attrs={'class': 'custom-checkbox'}),
         label='Оберіть до 3 запитів, які ви бажаєте обговорити першочергово'
     )
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['phone', 'image']
